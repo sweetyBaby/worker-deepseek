@@ -1,0 +1,27 @@
+name: Deploy Worker
+
+on:
+  push:
+    branches:
+      - main  # 或 master，取决于您的默认分支
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          # 如果您的项目在子目录中，可以添加 workingDirectory 参数:
+          # workingDirectory: 'my-worker-directory'

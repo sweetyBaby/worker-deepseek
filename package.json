@@ -1,0 +1,25 @@
+{
+  "name": "graphql-yoga-cloudflare-workers",
+  "description": "Fully-featured, simple to set up, performant and extendable GraphQL server",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "start": "wrangler dev",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "graphql": "16.10.0",
+    "graphql-yoga": "5.10.11"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.6.8",
+    "@cloudflare/workers-types": "^4.20250124.3",
+    "@types/service-worker-mock": "2.0.4",
+    "service-worker-mock": "2.0.5",
+    "typescript": "5.7.3",
+    "vitest": "2.1.x",
+    "wrangler": "^4.14.4"
+  }
+}
